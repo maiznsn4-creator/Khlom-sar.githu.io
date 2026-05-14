@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History Exam - Professional Grade</title>
+    <title>History Exam - Full Access</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;600;700&family=Moul&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,24 +16,35 @@
         .container { width: 100%; max-width: 500px; }
         .nm-card { background: var(--bg); border-radius: 20px; box-shadow: 9px 9px 16px var(--shadow), -9px -9px 16px var(--white); padding: 25px; margin-bottom: 20px; }
         .nm-input { background: var(--bg); border: none; border-radius: 12px; box-shadow: inset 5px 5px 10px var(--shadow), inset -5px -5px 10px var(--white); width: 100%; padding: 15px; outline: none; margin-top: 12px; color: #333; }
-        .nm-btn { background: var(--bg); border: none; border-radius: 15px; box-shadow: 6px 6px 12px var(--shadow), -6px -6px 12px var(--white); padding: 15px; width: 100%; font-weight: 700; color: var(--accent); cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; transition: 0.3s; }
+        .nm-btn { background: var(--bg); border: none; border-radius: 15px; box-shadow: 6px 6px 12px var(--shadow), -6px -6px 12px var(--white); padding: 15px; width: 100%; font-weight: 700; color: var(--accent); cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; transition: 0.3s; margin-top: 10px; }
         .nm-btn:active { box-shadow: inset 4px 4px 8px var(--shadow), inset -4px -4px 8px var(--white); transform: scale(0.98); }
         .timer { position: sticky; top: 10px; z-index: 100; background: #e74c3c; color: white; padding: 10px 20px; border-radius: 50px; text-align: center; font-weight: bold; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3); }
         h2.title { font-family: 'Moul'; color: var(--accent); text-align: center; font-size: 14px; margin-bottom: 25px; line-height: 1.6; }
-        .user-info { font-size: 11px; background: rgba(0,136,204,0.1); padding: 10px; border-radius: 10px; margin-bottom: 20px; display: grid; grid-template-columns: 1fr; gap: 5px; }
-        #welcome-overlay { position: fixed; inset: 0; background: var(--bg); z-index: 1000; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .link-group { margin-bottom: 25px; display: flex; flex-direction: column; gap: 10px; }
+        .ch-link { text-decoration: none; background: #fff; color: #444; padding: 12px; border-radius: 12px; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: space-between; box-shadow: 4px 4px 8px var(--shadow); border: 1px solid #ddd; }
+        .ch-link i { color: var(--accent); }
+        #welcome-overlay { position: fixed; inset: 0; background: var(--bg); z-index: 1000; display: flex; justify-content: center; align-items: center; padding: 20px; overflow-y: auto; }
     </style>
 </head>
 <body>
 
 <div id="welcome-overlay">
-    <div class="nm-card" style="text-align: center; width: 100%; max-width: 360px;">
-        <i class="fas fa-graduation-cap" style="font-size: 40px; color: var(--accent); margin-bottom: 15px;"></i>
-        <h2 style="font-size: 16px; margin-bottom: 20px;">វិញ្ញាសាប្រវត្តិវិទ្យាថ្នាក់ទី១២</h2>
-        <div id="status-msg" style="margin-bottom: 20px; color: #d32f2f; font-weight: bold; display: none;">⚠️ អ្នកបានប្រឡងរួចរាល់ហើយ!</div>
+    <div class="nm-card" style="text-align: center; width: 100%; max-width: 380px;">
+        <i class="fas fa-university" style="font-size: 45px; color: var(--accent); margin-bottom: 15px;"></i>
+        <h2 style="font-size: 16px; margin-bottom: 20px;">មជ្ឈមណ្ឌលសិក្សាថ្នាក់ទី១២</h2>
+        
+        <div class="link-group">
+            <a href="https://t.me/gradescience12" target="_blank" class="ch-link"><span><i class="fas fa-atom"></i> ថ្នាក់វិទ្យាសាស្ត្រ</span> <i class="fas fa-external-link-alt"></i></a>
+            <a href="https://t.me/GradeSocialStudies12" target="_blank" class="ch-link"><span><i class="fas fa-book-reader"></i> ថ្នាក់សង្គម</span> <i class="fas fa-external-link-alt"></i></a>
+            <a href="https://t.me/Bacll2025_2026_2027" target="_blank" class="ch-link"><span><i class="fas fa-pen-nib"></i> បង្រៀនតែងសេចក្ដី</span> <i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #ccc; margin-bottom: 20px;">
+        
+        <div id="status-msg" style="margin-bottom: 15px; color: #d32f2f; font-weight: bold; display: none;">⚠️ អ្នកបានបញ្ជូនចម្លើយរួចហើយ!</div>
         <div id="start-area">
-            <p style="font-size: 12px; margin-bottom: 20px; color: #666;">(៣០ សំណួរក្នុងឃ្លាំង - ចេញ ៥ សំណួរ/ម្នាក់)</p>
-            <button class="nm-btn" onclick="startExam()">ចាប់ផ្តើមប្រឡង</button>
+            <p style="font-size: 12px; margin-bottom: 15px; color: #666;">វិញ្ញាសាប្រវត្តិវិទ្យា (៥ សំណួរ Random)</p>
+            <button class="nm-btn" onclick="startExam()">ចូលប្រឡង <i class="fas fa-arrow-right"></i></button>
         </div>
     </div>
 </div>
@@ -41,15 +52,15 @@
 <div class="container" id="app" style="display: none;">
     <div class="timer" id="timer-display">30:00</div>
     <div class="nm-card">
-        <h2 class="title">វិញ្ញាសាប្រឡង</h2>
-        <div class="user-info">
-            <div>👤 ឈ្មោះ: <b id="u-name"></b></div>
-            <div>🔗 User: <b id="u-username"></b></div>
-            <div>🆔 ID: <b id="u-id"></b></div>
+        <h2 class="title">វិញ្ញាសាប្រឡងសាកល្បង</h2>
+        <div style="font-size: 11px; background: rgba(0,136,204,0.05); padding: 12px; border-radius: 12px; margin-bottom: 20px; line-height: 1.8;">
+            👤 ឈ្មោះ: <b id="u-name"></b><br>
+            🔗 User: <b id="u-username"></b><br>
+            🆔 ID: <b id="u-id"></b>
         </div>
         <form id="exam-form">
             <div id="q-container"></div>
-            <button type="submit" class="nm-btn" style="margin-top: 30px; color: #27ae60;">បញ្ជូនចម្លើយ</button>
+            <button type="submit" class="nm-btn" style="margin-top: 30px; color: #27ae60; background: #fff;">បញ្ជូនចម្លើយ <i class="fas fa-paper-plane"></i></button>
         </form>
     </div>
 </div>
@@ -58,7 +69,6 @@
     const tg = window.Telegram.WebApp;
     tg.expand();
 
-    // ឃ្លាំងសំណួរ ៣០ ដែលបានកែសម្រួល (បញ្ជាក់សម័យកាល)
     const questionBank = [
         "ក្នុងសម័យកម្ពុជាប្រជាធិបតេយ្យ តើអង្គការខ្មែរក្រហមបានឡើងកាន់អំណាចនៅថ្ងៃ ខែ ឆ្នាំណា?",
         "ហេតុអ្វីខ្មែរក្រហមបង្ខំប្រជាជនឱ្យចាកចេញពីភ្នំពេញនៅថ្ងៃ១៧ មេសា ១៩៧៥?",
@@ -93,9 +103,8 @@
     ];
 
     const selectedQs = questionBank.sort(() => 0.5 - Math.random()).slice(0, 5);
-    const user = tg.initDataUnsafe.user || { first_name: "Student", username: "N/A", id: Date.now() };
+    const user = tg.initDataUnsafe.user || { first_name: "សិស្ស", username: "None", id: "0000" };
 
-    // Check Duplicate
     if(localStorage.getItem(`exam_done_${user.id}`)) {
         document.getElementById('status-msg').style.display = 'block';
         document.getElementById('start-area').style.display = 'none';
@@ -117,7 +126,7 @@
         item.style.marginBottom = "25px";
         item.id = `q-wrap-${i}`;
         item.innerHTML = `<label style="font-size:14px; font-weight:600; line-height:1.5;">${i+1}. ${q}</label>
-                          <textarea name="ans_${i}" class="nm-input" rows="3" placeholder="សរសេរចម្លើយរបស់អ្នក..."></textarea>`;
+                          <textarea name="ans_${i}" class="nm-input" rows="3" placeholder="ឆ្លើយនៅទីនេះ..."></textarea>`;
         qDiv.appendChild(item);
     });
 
@@ -132,40 +141,35 @@
 
     async function submitData(e, isAuto = false) {
         if (e) e.preventDefault();
-        
         const form = document.getElementById('exam-form');
         const textareas = form.querySelectorAll('textarea');
         let emptyIdx = null;
-
         textareas.forEach((t, idx) => { if(!t.value.trim() && emptyIdx === null) emptyIdx = idx; });
 
         if (emptyIdx !== null && !isAuto) {
             document.getElementById(`q-wrap-${emptyIdx}`).scrollIntoView({ behavior: 'smooth' });
-            return Swal.fire({ title: 'មិនទាន់រួចរាល់!', text: `សូមឆ្លើយសំណួរទី ${emptyIdx + 1}`, icon: 'warning' });
+            return Swal.fire({ title: 'ខ្វះចម្លើយ!', text: `សូមឆ្លើយសំណួរទី ${emptyIdx + 1}`, icon: 'warning' });
         }
 
         if (!isAuto) {
             const confirm = await Swal.fire({
-                title: 'បញ្ជូនចម្លើយ?', text: "អ្នកអាចប្រឡងបានតែម្តងប៉ុណ្ណោះ!", icon: 'question',
-                showCancelButton: true, confirmButtonText: 'យល់ព្រម', cancelButtonText: 'ឆែកឡើងវិញ'
+                title: 'បញ្ជូនចម្លើយ?', text: "តើអ្នកចង់បញ្ចប់ការប្រឡងមែនទេ?", icon: 'question',
+                showCancelButton: true, confirmButtonText: 'បញ្ជូន', cancelButtonText: 'ឆែកឡើងវិញ'
             });
             if (!confirm.isConfirmed) return;
         }
 
-        let msg = `📋 **លទ្ធផលប្រឡងប្រវត្តិវិទ្យា**\n\n`;
+        let msg = `🎓 **លទ្ធផលប្រឡងប្រវត្តិវិទ្យា**\n\n`;
         msg += `👤 ឈ្មោះ: ${user.first_name}\n🔗 User: @${user.username || 'None'}\n🆔 ID: ${user.id}\n\n`;
         selectedQs.forEach((q, i) => msg += `❓ ${q}\n✅ ${new FormData(form).get('ans_'+i)}\n\n`);
 
-        try {
-            await fetch(`https://api.telegram.org/bot8690967267:AAHXIaOLWQZlXYfZNi6_jd80oYkcZN81oY8/sendMessage`, {
-                method: 'POST', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: '-1003919234156', text: msg, parse_mode: 'Markdown' })
-            });
-            localStorage.setItem(`exam_done_${user.id}`, "true");
-            Swal.fire('ជោគជ័យ!', 'ចម្លើយត្រូវបានបញ្ជូនទៅកាន់លោកគ្រូ។', 'success').then(() => tg.close());
-        } catch (err) {
-            Swal.fire('Error', 'មានបញ្ហាបច្ចេកទេស!', 'error');
-        }
+        await fetch(`https://api.telegram.org/bot8690967267:AAHXIaOLWQZlXYfZNi6_jd80oYkcZN81oY8/sendMessage`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: '-1003919234156', text: msg, parse_mode: 'Markdown' })
+        });
+
+        localStorage.setItem(`exam_done_${user.id}`, "true");
+        Swal.fire('ជោគជ័យ!', 'ចម្លើយត្រូវបានផ្ញើជូនលោកគ្រូរួចរាល់។', 'success').then(() => tg.close());
     }
 
     document.getElementById('exam-form').onsubmit = submitData;
