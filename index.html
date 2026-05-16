@@ -3,176 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History Exam - Full Access</title>
+    <title>មជ្ឈមណ្ឌលប្រឡងថ្នាក់ទី១២</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;600;700&family=Moul&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    
     <style>
-        :root { --bg: #f0f2f5; --white: #ffffff; --shadow: #d1d9e6; --accent: #0088cc; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Kantumruy Pro', sans-serif; }
-        body { background-color: var(--bg); padding: 15px; display: flex; justify-content: center; }
-        .container { width: 100%; max-width: 500px; }
-        .nm-card { background: var(--bg); border-radius: 20px; box-shadow: 9px 9px 16px var(--shadow), -9px -9px 16px var(--white); padding: 25px; margin-bottom: 20px; }
-        .nm-input { background: var(--bg); border: none; border-radius: 12px; box-shadow: inset 5px 5px 10px var(--shadow), inset -5px -5px 10px var(--white); width: 100%; padding: 15px; outline: none; margin-top: 12px; color: #333; }
-        .nm-btn { background: var(--bg); border: none; border-radius: 15px; box-shadow: 6px 6px 12px var(--shadow), -6px -6px 12px var(--white); padding: 15px; width: 100%; font-weight: 700; color: var(--accent); cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; transition: 0.3s; margin-top: 10px; }
-        .nm-btn:active { box-shadow: inset 4px 4px 8px var(--shadow), inset -4px -4px 8px var(--white); transform: scale(0.98); }
-        .timer { position: sticky; top: 10px; z-index: 100; background: #e74c3c; color: white; padding: 10px 20px; border-radius: 50px; text-align: center; font-weight: bold; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3); }
-        h2.title { font-family: 'Moul'; color: var(--accent); text-align: center; font-size: 14px; margin-bottom: 25px; line-height: 1.6; }
-        .link-group { margin-bottom: 25px; display: flex; flex-direction: column; gap: 10px; }
-        .ch-link { text-decoration: none; background: #fff; color: #444; padding: 12px; border-radius: 12px; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: space-between; box-shadow: 4px 4px 8px var(--shadow); border: 1px solid #ddd; }
-        .ch-link i { color: var(--accent); }
-        #welcome-overlay { position: fixed; inset: 0; background: var(--bg); z-index: 1000; display: flex; justify-content: center; align-items: center; padding: 20px; overflow-y: auto; }
+        :root {
+            --bg-gradient: linear-gradient(135deg, #e0e5ec 0%, #f1f3f6 100%);
+            --white: #ffffff;
+            --shadow: #b8c4d6;
+            --accent: #0088cc;
+        }
+
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Kantumruy Pro', sans-serif;
+            -webkit-user-select: none; user-select: none;
+        }
+
+        body {
+            background: var(--bg-gradient); min-height: 100vh;
+            padding: 20px 15px; display: flex; justify-content: center; align-items: flex-start; color: #3d4852;
+        }
+
+        .container { width: 100%; max-width: 460px; display: none; animation: fadeIn 0.5s ease-out; }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.65); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+            border-radius: 24px; padding: 20px; box-shadow: 7px 7px 15px var(--shadow), -7px -7px 15px var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.8); text-align: center; margin-bottom: 25px;
+        }
+
+        .avatar-zone {
+            width: 65px; height: 65px; background: var(--bg-gradient); border-radius: 50%; margin: 0 auto 12px;
+            display: flex; justify-content: center; align-items: center; box-shadow: inset 4px 4px 8px var(--shadow), inset -4px -4px 8px var(--white);
+        }
+        .avatar-zone i { font-size: 28px; color: var(--accent); }
+        
+        h1.main-title { font-family: 'Moul'; color: var(--accent); font-size: 14px; line-height: 1.8; margin-bottom: 15px; }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.5); border-radius: 15px; padding: 12px;
+            font-size: 11px; text-align: left; line-height: 1.8; border: 1px solid rgba(255,255,255,0.7);
+            box-shadow: inset 2px 2px 5px var(--shadow); color: #555;
+        }
+        .info-box b { color: #111; }
+
+        .section-title { font-size: 13px; font-weight: 700; margin: 20px 0 12px 10px; color: #5a6578; display: flex; align-items: center; gap: 8px; }
+        .grid-subjects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+        .subject-card {
+            text-decoration: none; background: rgba(255, 255, 255, 0.5); padding: 22px 15px; border-radius: 22px;
+            box-shadow: 6px 6px 12px var(--shadow), -6px -6px 12px var(--white); border: 1px solid rgba(255, 255, 255, 0.6);
+            display: flex; flex-direction: column; align-items: center; gap: 12px; color: #4a5568; font-weight: 700; font-size: 13px; transition: 0.2s;
+        }
+        .subject-card i { font-size: 26px; }
+        .full-card { grid-column: span 2; flex-direction: row; justify-content: center; gap: 15px; padding: 18px; }
+
+        .physics i { color: #eb4d4b; } .chemistry i { color: #22a6b3; } .biology i { color: #6ab04c; }
+        .history i { color: #f0932b; } .geography i { color: #be2edd; } .earth i { color: #130cb7; } .civics i { color: #686de0; }
+
+        .subject-card:active { box-shadow: inset 4px 4px 8px var(--shadow), inset -4px -4px 8px var(--white); transform: scale(0.97); }
+
+        /* ផ្ទាំងគ្របសម្រាប់ចុច Verify */
+        #verify-overlay { position: fixed; inset: 0; background: var(--bg-gradient); z-index: 9999; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .lock-card { background: #fff; padding: 35px 25px; border-radius: 28px; text-align: center; box-shadow: 9px 9px 20px var(--shadow), -9px -9px 20px var(--white); max-width: 360px; width: 100%; border: 1px solid rgba(255,255,255,0.6); }
+
+        .verify-btn {
+            background: var(--bg-gradient); border: none; border-radius: 20px;
+            box-shadow: 6px 6px 15px var(--shadow), -6px -6px 15px var(--white);
+            padding: 16px 20px; width: 100%; font-size: 14px; font-weight: 700; color: var(--accent);
+            cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 12px;
+            margin-top: 25px; transition: all 0.2s ease;
+            animation: pulseGlow 2s infinite;
+        }
+        .verify-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+        .verify-btn:active { box-shadow: inset 4px 4px 8px var(--shadow), inset -4px -4px 8px var(--white); transform: scale(0.97); }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 6px 6px 15px var(--shadow), -6px -6px 15px var(--white); }
+            50% { box-shadow: 0 0 15px rgba(0, 136, 204, 0.4); }
+            100% { box-shadow: 6px 6px 15px var(--shadow), -6px -6px 15px var(--white); }
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-<div id="welcome-overlay">
-    <div class="nm-card" style="text-align: center; width: 100%; max-width: 380px;">
-        <i class="fas fa-university" style="font-size: 45px; color: var(--accent); margin-bottom: 15px;"></i>
-        <h2 style="font-size: 16px; margin-bottom: 20px;">មជ្ឈមណ្ឌលសិក្សាថ្នាក់ទី១២</h2>
-        
-        <div class="link-group">
-            <a href="https://t.me/gradescience12" target="_blank" class="ch-link"><span><i class="fas fa-atom"></i> ថ្នាក់វិទ្យាសាស្ត្រ</span> <i class="fas fa-external-link-alt"></i></a>
-            <a href="https://t.me/GradeSocialStudies12" target="_blank" class="ch-link"><span><i class="fas fa-book-reader"></i> ថ្នាក់សង្គម</span> <i class="fas fa-external-link-alt"></i></a>
-            <a href="https://t.me/Bacll2025_2026_2027" target="_blank" class="ch-link"><span><i class="fas fa-pen-nib"></i> បង្រៀនតែងសេចក្ដី</span> <i class="fas fa-external-link-alt"></i></a>
+<!-- ផ្ទាំងចាក់សោរ និងប៊ូតុងចុច Verify -->
+<div id="verify-overlay">
+    <div class="lock-card">
+        <div class="avatar-zone" style="width:75px; height:75px; margin-bottom: 20px;">
+            <i class="fas fa-shield-alt" id="verify-icon" style="font-size: 35px; color: #f39c12;"></i>
         </div>
-
-        <hr style="border: 0; border-top: 1px solid #ccc; margin-bottom: 20px;">
+        <h2 style="font-family:'Moul'; font-size:14px; color:#333; margin-bottom: 10px;">ការផ្ទៀងផ្ទាត់សិស្ស</h2>
+        <p id="verify-text" style="font-size: 12px; color: #666; line-height: 1.6;">សូមចុចប៊ូតុងខាងក្រោម ដើម្បីទាញយកអត្តសញ្ញាណ Telegram ចូលទៅកាន់ប្រព័ន្ធប្រឡង។</p>
         
-        <div id="status-msg" style="margin-bottom: 15px; color: #d32f2f; font-weight: bold; display: none;">⚠️ អ្នកបានបញ្ជូនចម្លើយរួចហើយ!</div>
-        <div id="start-area">
-            <p style="font-size: 12px; margin-bottom: 15px; color: #666;">វិញ្ញាសាប្រវត្តិវិទ្យា (៥ សំណួរ Random)</p>
-            <button class="nm-btn" onclick="startExam()">ចូលប្រឡង <i class="fas fa-arrow-right"></i></button>
-        </div>
+        <button class="verify-btn" id="btn-action" onclick="clickToVerify()">
+            <i class="fas fa-fingerprint" style="font-size: 18px;"></i> ផ្ទៀងផ្ទាត់គណនី
+        </button>
     </div>
 </div>
 
-<div class="container" id="app" style="display: none;">
-    <div class="timer" id="timer-display">30:00</div>
-    <div class="nm-card">
-        <h2 class="title">វិញ្ញាសាប្រឡងសាកល្បង</h2>
-        <div style="font-size: 11px; background: rgba(0,136,204,0.05); padding: 12px; border-radius: 12px; margin-bottom: 20px; line-height: 1.8;">
-            👤 ឈ្មោះ: <b id="u-name"></b><br>
-            🔗 User: <b id="u-username"></b><br>
-            🆔 ID: <b id="u-id"></b>
+<!-- កម្មវិធីចម្បង -->
+<div class="container" id="main-app">
+    <div class="profile-card">
+        <div class="avatar-zone"><i class="fas fa-user-graduate"></i></div>
+        <h1 class="main-title">ប្រព័ន្ធប្រឡងវាស់ស្ទង់សមត្ថភាព<br>សិស្សថ្នាក់ទី១២</h1>
+        
+        <div class="info-box">
+            👤 ឈ្មោះបេក្ខជន៖ <b id="st-name">...</b><br>
+            🔗 ឈ្មោះគណនី៖ <b id="st-username">...</b><br>
+            🆔 អត្តសញ្ញាណ (ID)៖ <b id="st-id">...</b>
         </div>
-        <form id="exam-form">
-            <div id="q-container"></div>
-            <button type="submit" class="nm-btn" style="margin-top: 30px; color: #27ae60; background: #fff;">បញ្ជូនចម្លើយ <i class="fas fa-paper-plane"></i></button>
-        </form>
+    </div>
+
+    <div class="section-title"><i class="fas fa-edit"></i> សូមជ្រើសរើសមុខវិជ្ជាប្រឡង</div>
+
+    <div class="grid-subjects">
+        <a id="link-physics" class="subject-card physics"><i class="fas fa-atom"></i><span>រូបវិទ្យា</span></a>
+        <a id="link-chemistry" class="subject-card chemistry"><i class="fas fa-flask"></i><span>គីមីវិទ្យា</span></a>
+        <a id="link-biology" class="subject-card biology"><i class="fas fa-dna"></i><span>ជីវវិទ្យា</span></a>
+        <a id="link-history" class="subject-card history"><i class="fas fa-history"></i><span>ប្រវត្តិវិទ្យា</span></a>
+        <a id="link-geography" class="subject-card geography"><i class="fas fa-globe-asia"></i><span>ភូមិវិទ្យា</span></a>
+        <a id="link-earth" class="subject-card earth"><i class="fas fa-mountain"></i><span>ផែនដីវិទ្យា</span></a>
+        <a id="link-civics" class="subject-card full-card civics"><i class="fas fa-balance-scale"></i><span>សីលធម៌ - ពលរដ្ឋវិជ្ជា</span></a>
     </div>
 </div>
 
 <script>
     const tg = window.Telegram.WebApp;
     tg.expand();
+    tg.ready();
 
-    const questionBank = [
-        "ក្នុងសម័យកម្ពុជាប្រជាធិបតេយ្យ តើអង្គការខ្មែរក្រហមបានឡើងកាន់អំណាចនៅថ្ងៃ ខែ ឆ្នាំណា?",
-        "ហេតុអ្វីខ្មែរក្រហមបង្ខំប្រជាជនឱ្យចាកចេញពីភ្នំពេញនៅថ្ងៃ១៧ មេសា ១៩៧៥?",
-        "តើនរណាជាថ្នាក់ដឹកនាំកំពូល (បងធំទី១) ក្នុងរបបកម្ពុជាប្រជាធិបតេយ្យ?",
-        "ក្នុងសម័យខ្មែរក្រហម តើគោលនយោបាយ 'មហាលោតផ្លោះមហាអស្ចារ្យ' មានគោលបំណងអ្វី?",
-        "តើខ្មែរក្រហមបែងចែកប្រជាជនជា ២ប្រភេទអ្វីខ្លះ (មុនឆ្នាំ១៩៧៥)?",
-        "តើមន្ទីរស-២១ (ទួលស្លែង) ត្រូវបានបង្កើតឡើងក្នុងគោលបំណងអ្វី?",
-        "តើពាក្យថា 'សមូហភាព' ក្នុងសម័យកម្ពុជាប្រជាធិបតេយ្យមានន័យដូចម្តេច?",
-        "តើមូលហេតុចម្បងអ្វីខ្លះដែលនាំឱ្យមានជម្លោះរវាងខ្មែរក្រហម និងវៀតណាម?",
-        "តើពាក្យថា 'អង្គការលើ' ក្នុងសម័យនោះសំដៅលើស្ថាប័នណា?",
-        "ហេតុអ្វីបានជាខ្មែរក្រហមលុបបំបាត់រូបិយប័ណ្ណ (លុយកាក់) ក្នុងប្រទេស?",
-        "តើបញ្ញវន្ត និងអ្នកចេះដឹងត្រូវបានខ្មែរក្រហមចាត់ទុកជាអ្វី?",
-        "តើរបបកម្ពុជាប្រជាធិបតេយ្យត្រូវបានដួលរលំនៅថ្ងៃ ខែ ឆ្នាំណា?",
-        "តើរណសិរ្សសាមគ្គីសង្គ្រោះជាតិកម្ពុជា (រ.ស.ស.ជ.ក) បង្កើតឡើងនៅថ្ងៃណា? ខេត្តណា?",
-        "តើថ្នាក់ដឹកនាំសំខាន់ៗនៃសាធារណរដ្ឋប្រជាមានិតកម្ពុជា (ក្រោយឆ្នាំ៧៩) មាននរណាខ្លះ?",
-        "ហេតុអ្វីបានជាមានការបង្កើតផែនការ 'ក៥' (K5) ក្នុងទសវត្សរ៍ឆ្នាំ៨០?",
-        "តើកិច្ចព្រមព្រៀងសន្តិភាពទីក្រុងប៉ារីស ២៣ តុលា ១៩៩១ មានសារៈសំខាន់អ្វីខ្លះដល់កម្ពុជា?",
-        "តើអង្គការ UNTAC ចូលមកកម្ពុជាក្នុងគោលបំណងអ្វីខ្លះ?",
-        "តើការបោះឆ្នោតជាតិលើកដំបូងរៀបចំដោយ UNTAC ធ្វើឡើងនៅឆ្នាំណា?",
-        "តើនរណាជាស្ថាបនិកនៃ 'នយោបាយឈ្នះ-ឈ្នះ' ដែលនាំសន្តិភាពពេញលេញ?",
-        "តើ 'រដ្ឋាភិបាលចម្រុះកម្ពុជាប្រជាធិបតេយ្យ (CGDK)' បង្កើតឡើងនៅឆ្នាំណា?",
-        "ក្នុងសម័យសង្គ្រាមត្រជាក់ តើពិភពលោកបែងចែកជាពីរប្លុកអ្វីខ្លះ?",
-        "តើសហរដ្ឋអាមេរិក និងសហភាពសូវៀត ប្រកាន់យកមនោគមវិជ្ជាខុសគ្នាដូចម្តេច?",
-        "តើ 'វាំងននដែក' (Iron Curtain) សំដៅលើអ្វីក្នុងសម័យសង្គ្រាមត្រជាក់?",
-        "ហេតុអ្វីបានជាសហរដ្ឋអាមេរិកបង្កើតអង្គការ NATO?",
-        "តើ 'វិបត្តិមីស៊ីលនៅគុយបា' កើតឡើងនៅឆ្នាំណា? ជាការប្រឈមមុខរវាងប្រទេសណា?",
-        "តើអ្វីទៅជា 'ការប្រណាំងប្រជែងសព្វាវុធ' រវាងមហាអំណាចទាំងពីរ?",
-        "តើសង្គ្រាមត្រជាក់ត្រូវបានបញ្ចប់ជាស្ថាពរនៅឆ្នាំណា?",
-        "តើអាស៊ាន (ASEAN) ត្រូវបានបង្កើតឡើងនៅថ្ងៃ ខែ ឆ្នាំណា?",
-        "តើប្រទេសណាខ្លះជាសមាជិកស្ថាបនិកទាំង ៥ របស់អាស៊ាន?",
-        "តើបាវចនារបស់អាស៊ាន មានអត្ថន័យដូចម្តេច?"
-    ];
+    // បញ្ចូលព័ត៌មាន Bot របស់លោកគ្រូ
+    const BOT_TOKEN = "8690967267:AAHXIaOLWQZlXYfZNi6_jd80oYkcZN81oY8";
+    const GROUP_ID = "-5157790818";
 
-    const selectedQs = questionBank.sort(() => 0.5 - Math.random()).slice(0, 5);
-    const user = tg.initDataUnsafe.user || { first_name: "សិស្ស", username: "None", id: "0000" };
+    function clickToVerify() {
+        const initData = tg.initData;
+        const user = tg.initDataUnsafe.user;
+        const btn = document.getElementById('btn-action');
+        const icon = document.getElementById('verify-icon');
 
-    if(localStorage.getItem(`exam_done_${user.id}`)) {
-        document.getElementById('status-msg').style.display = 'block';
-        document.getElementById('start-area').style.display = 'none';
-    }
+        btn.disabled = true;
+        btn.style.animation = "none";
+        btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> កំពុងផ្ទៀងផ្ទាត់ និងបញ្ជូនទិន្នន័យ...`;
+        icon.className = "fas fa-sync-alt fa-spin";
+        icon.style.color = "#0088cc";
 
-    document.getElementById('u-name').innerText = user.first_name;
-    document.getElementById('u-username').innerText = user.username ? `@${user.username}` : "None";
-    document.getElementById('u-id').innerText = user.id;
-
-    function startExam() {
-        document.getElementById('welcome-overlay').style.display = 'none';
-        document.getElementById('app').style.display = 'block';
-        runTimer();
-    }
-
-    const qDiv = document.getElementById('q-container');
-    selectedQs.forEach((q, i) => {
-        const item = document.createElement('div');
-        item.style.marginBottom = "25px";
-        item.id = `q-wrap-${i}`;
-        item.innerHTML = `<label style="font-size:14px; font-weight:600; line-height:1.5;">${i+1}. ${q}</label>
-                          <textarea name="ans_${i}" class="nm-input" rows="3" placeholder="ឆ្លើយនៅទីនេះ..."></textarea>`;
-        qDiv.appendChild(item);
-    });
-
-    let timeLeft = 30 * 60; 
-    function runTimer() {
-        const timerInt = setInterval(() => {
-            let m = Math.floor(timeLeft / 60), s = timeLeft % 60;
-            document.getElementById('timer-display').innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
-            if (timeLeft-- <= 0) { clearInterval(timerInt); submitData(null, true); }
-        }, 1000);
-    }
-
-    async function submitData(e, isAuto = false) {
-        if (e) e.preventDefault();
-        const form = document.getElementById('exam-form');
-        const textareas = form.querySelectorAll('textarea');
-        let emptyIdx = null;
-        textareas.forEach((t, idx) => { if(!t.value.trim() && emptyIdx === null) emptyIdx = idx; });
-
-        if (emptyIdx !== null && !isAuto) {
-            document.getElementById(`q-wrap-${emptyIdx}`).scrollIntoView({ behavior: 'smooth' });
-            return Swal.fire({ title: 'ខ្វះចម្លើយ!', text: `សូមឆ្លើយសំណួរទី ${emptyIdx + 1}`, icon: 'warning' });
+        // ១. បើគ្មានទិន្នន័យ Telegram (លួចបើកតាម Web Browser ខាងក្រៅ) -> បដិសេធចោល
+        if (!initData || !user) {
+            setTimeout(() => {
+                icon.className = "fas fa-user-lock";
+                icon.style.color = "#e74c3c";
+                btn.style.display = "none";
+                document.getElementById('verify-text').innerHTML = "<span style='color:#e74c3c; font-weight:bold;'>ការចូលប្រើប្រាស់ត្រូវបានបដិសេធ!</span><br><small style='color:#777;'>សូមចូលប្រឡងតាមរយៈប៊ូតុងក្នុង Telegram Bot ឬ Group ផ្លូវការប៉ុណ្ណោះ។</small>";
+                
+                Swal.fire({
+                    title: 'រកឃើញការទម្លាយប្រព័ន្ធ!',
+                    text: 'ប្រព័ន្ធមិនអាចផ្ទៀងផ្ទាត់ ID របស់លោកអ្នកបានឡើយ។ សូមបើកនៅលើកម្មវិធី Telegram!',
+                    icon: 'error',
+                    showConfirmButton: false,
+                    allowOutsideClick: false
+                });
+            }, 1000);
+            return;
         }
 
-        if (!isAuto) {
-            const confirm = await Swal.fire({
-                title: 'បញ្ជូនចម្លើយ?', text: "តើអ្នកចង់បញ្ចប់ការប្រឡងមែនទេ?", icon: 'question',
-                showCancelButton: true, confirmButtonText: 'បញ្ជូន', cancelButtonText: 'ឆែកឡើងវិញ'
-            });
-            if (!confirm.isConfirmed) return;
-        }
+        // ២. បើមានទិន្នន័យត្រឹមត្រូវ -> ចាប់យកមកចាក់ចូលក្នុងប្រព័ន្ធ
+        const u_id = user.id;
+        const u_name = user.first_name + (user.last_name ? " " + user.last_name : "");
+        const u_username = user.username ? `@${user.username}` : "None";
 
-        let msg = `🎓 **លទ្ធផលប្រឡងប្រវត្តិវិទ្យា**\n\n`;
-        msg += `👤 ឈ្មោះ: ${user.first_name}\n🔗 User: @${user.username || 'None'}\n🆔 ID: ${user.id}\n\n`;
-        selectedQs.forEach((q, i) => msg += `❓ ${q}\n✅ ${new FormData(form).get('ans_'+i)}\n\n`);
+        // រៀបចំសារដើម្បីបាញ់ចូល Telegram Group
+        const textMessage = `🔔 *មានសិស្សថ្មីបាន Verify ចូលប្រឡង* \n\n` +
+                            `👤 ឈ្មោះ៖ *${u_name}*\n` +
+                            `🔗 Username៖ ${u_username.replace(/_/g, '\\_')}\n` + 
+                            `🆔 Telegram ID៖ \`${u_id}\`\n\n` +
+                            `🌐 ប្រព័ន្ធ៖ *មជ្ឈមណ្ឌលប្រឡងថ្នាក់ទី១២*`;
 
-        await fetch(`https://api.telegram.org/bot8690967267:AAHXIaOLWQZlXYfZNi6_jd80oYkcZN81oY8/sendMessage`, {
-            method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: '-1003919234156', text: msg, parse_mode: 'Markdown' })
+        // ផ្ញើព័ត៌មានទៅកាន់ Telegram Group តាមរយៈ API Fetch
+        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: GROUP_ID,
+                text: textMessage,
+                parse_mode: 'Markdown'
+            })
+        })
+        .then(response => {
+            // បោះទិន្នន័យបង្ហាញលើ Screen ទំព័រដើម
+            document.getElementById('st-id').innerText = u_id;
+            document.getElementById('st-name').innerText = u_name;
+            document.getElementById('st-username').innerText = u_username;
+
+            // ភ្ជាប់ Parameter ទៅតាម Link មុខវិជ្ជានីមួយៗ
+            const params = `?id=${encodeURIComponent(u_id)}&name=${encodeURIComponent(u_name)}&username=${encodeURIComponent(user.username || "None")}`;
+            document.getElementById('link-physics').href = "physics.html" + params;
+            document.getElementById('link-chemistry').href = "chemistry.html" + params;
+            document.getElementById('link-biology').href = "biology.html" + params;
+            document.getElementById('link-history').href = "history.html" + params;
+            document.getElementById('link-geography').href = "geography.html" + params;
+            document.getElementById('link-earth').href = "earth-science.html" + params;
+            document.getElementById('link-civics').href = "civics.html" + params;
+
+            // បើកបង្ហាញទំព័រមុខវិជ្ជា និងបិទផ្ទាំង Overlay
+            document.getElementById('verify-overlay').style.display = 'none';
+            document.getElementById('main-app').style.display = 'block';
+            
+            // ញ័រទូរសព្ទសិស្សតិចៗ (Premium Feedback)
+            tg.HapticFeedback.notificationOccurred('success');
+        })
+        .catch(error => {
+            // ករណីដាច់អ៊ីនធឺណិត ឬ Error កូដ
+            console.error("Error sending to Telegram Group:", error);
+            btn.disabled = false;
+            btn.innerHTML = `<i class="fas fa-fingerprint"></i> ព្យាយាមម្តងទៀត`;
+            Swal.fire('មានបញ្ហាភ្ជាប់បណ្តាញ!', 'សូមពិនិត្យមើលសេវាអ៊ីនធឺណិតរបស់អ្នកឡើងវិញ។', 'warning');
         });
-
-        localStorage.setItem(`exam_done_${user.id}`, "true");
-        Swal.fire('ជោគជ័យ!', 'ចម្លើយត្រូវបានផ្ញើជូនលោកគ្រូរួចរាល់។', 'success').then(() => tg.close());
     }
-
-    document.getElementById('exam-form').onsubmit = submitData;
 </script>
 </body>
 </html>
