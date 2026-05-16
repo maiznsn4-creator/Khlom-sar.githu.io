@@ -82,6 +82,15 @@
         .verify-btn:disabled { opacity: 0.7; cursor: not-allowed; }
         .verify-btn:active { box-shadow: inset 4px 4px 8px var(--shadow), inset -4px -4px 8px var(--white); transform: scale(0.97); }
 
+        /* រចនាបថប្រអប់ Links ឆានែលសិក្សាខាងក្រោម */
+        .channels-card { background: rgba(255, 255, 255, 0.4); border-radius: 20px; padding: 15px; border: 1px solid rgba(255,255,255,0.4); box-shadow: 4px 4px 10px var(--shadow); margin-top: 5px; }
+        .ch-btn { text-decoration: none; background: var(--white); padding: 12px 15px; border-radius: 14px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; font-size: 12px; font-weight: 600; color: #444; box-shadow: 3px 3px 6px var(--shadow); transition: 0.2s; }
+        .ch-btn:last-child { margin-bottom: 0; }
+        .ch-btn:active { box-shadow: inset 2px 2px 4px var(--shadow); transform: scale(0.99); }
+        .ch-btn span { display: flex; align-items: center; gap: 10px; }
+        .ch-btn span i { color: var(--accent); font-size: 16px; }
+        .ch-btn .fa-chevron-right { color: #b8c4d6; font-size: 11px; }
+
         @keyframes pulseGlow {
             0% { box-shadow: 6px 6px 15px var(--shadow), -6px -6px 15px var(--white); }
             50% { box-shadow: 0 0 15px rgba(0, 136, 204, 0.4); }
@@ -122,6 +131,7 @@
 
     <div class="section-title"><i class="fas fa-edit"></i> សូមជ្រើសរើសមុខវិជ្ជាប្រឡង</div>
 
+    <!-- ប៊ូតុងមុខវិជ្ជា -->
     <div class="grid-subjects">
         <a id="link-physics" class="subject-card physics"><i class="fas fa-atom"></i><span>រូបវិទ្យា</span></a>
         <a id="link-chemistry" class="subject-card chemistry"><i class="fas fa-flask"></i><span>គីមីវិទ្យា</span></a>
@@ -131,6 +141,24 @@
         <a id="link-earth" class="subject-card earth"><i class="fas fa-mountain"></i><span>ផែនដីវិទ្យា</span></a>
         <a id="link-civics" class="subject-card full-card civics"><i class="fas fa-balance-scale"></i><span>សីលធម៌ - ពលរដ្ឋវិជ្ជា</span></a>
     </div>
+
+    <!-- [ប្រអប់តំណភ្ជាប់ឆានែល និងគ្រុបសិក្សានៅខាងក្រោមមុខវិជ្ជា] -->
+    <div class="section-title" style="margin-top: 25px;"><i class="fas fa-shapes"></i> ថ្នាក់រៀន និងប្រភពឯកសារ</div>
+    
+    <div class="channels-card">
+        <a href="https://t.me/gradescience12" target="_blank" class="ch-btn">
+            <span><i class="fas fa-microscope"></i> ថ្នាក់វិទ្យាសាស្ត្រ</span>
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="https://t.me/GradeSocialStudies12" target="_blank" class="ch-btn">
+            <span><i class="fas fa-atlas"></i> ថ្នាក់សង្គម</span>
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="https://t.me/Bacll2025_2026_2027" target="_blank" class="ch-btn">
+            <span><i class="fas fa-marker"></i> ថ្នាក់តែងសេចក្ដី (បាក់ឌុប)</span>
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
 </div>
 
 <script>
@@ -138,7 +166,6 @@
     tg.expand();
     tg.ready();
 
-    // បញ្ចូលព័ត៌មាន Bot របស់លោកគ្រូ
     const BOT_TOKEN = "8690967267:AAHXIaOLWQZlXYfZNi6_jd80oYkcZN81oY8";
     const GROUP_ID = "-5157790818";
 
@@ -154,7 +181,6 @@
         icon.className = "fas fa-sync-alt fa-spin";
         icon.style.color = "#0088cc";
 
-        // ១. បើគ្មានទិន្នន័យ Telegram (លួចបើកតាម Web Browser ខាងក្រៅ) -> បដិសេធចោល
         if (!initData || !user) {
             setTimeout(() => {
                 icon.className = "fas fa-user-lock";
@@ -173,35 +199,26 @@
             return;
         }
 
-        // ២. បើមានទិន្នន័យត្រឹមត្រូវ -> ចាប់យកមកចាក់ចូលក្នុងប្រព័ន្ធ
         const u_id = user.id;
         const u_name = user.first_name + (user.last_name ? " " + user.last_name : "");
         const u_username = user.username ? `@${user.username}` : "None";
 
-        // រៀបចំសារដើម្បីបាញ់ចូល Telegram Group
         const textMessage = `🔔 *មានសិស្សថ្មីបាន Verify ចូលប្រឡង* \n\n` +
                             `👤 ឈ្មោះ៖ *${u_name}*\n` +
                             `🔗 Username៖ ${u_username.replace(/_/g, '\\_')}\n` + 
                             `🆔 Telegram ID៖ \`${u_id}\`\n\n` +
                             `🌐 ប្រព័ន្ធ៖ *មជ្ឈមណ្ឌលប្រឡងថ្នាក់ទី១២*`;
 
-        // ផ្ញើព័ត៌មានទៅកាន់ Telegram Group តាមរយៈ API Fetch
         fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                chat_id: GROUP_ID,
-                text: textMessage,
-                parse_mode: 'Markdown'
-            })
+            body: JSON.stringify({ chat_id: GROUP_ID, text: textMessage, parse_mode: 'Markdown' })
         })
         .then(response => {
-            // បោះទិន្នន័យបង្ហាញលើ Screen ទំព័រដើម
             document.getElementById('st-id').innerText = u_id;
             document.getElementById('st-name').innerText = u_name;
             document.getElementById('st-username').innerText = u_username;
 
-            // ភ្ជាប់ Parameter ទៅតាម Link មុខវិជ្ជានីមួយៗ
             const params = `?id=${encodeURIComponent(u_id)}&name=${encodeURIComponent(u_name)}&username=${encodeURIComponent(user.username || "None")}`;
             document.getElementById('link-physics').href = "physics.html" + params;
             document.getElementById('link-chemistry').href = "chemistry.html" + params;
@@ -211,16 +228,13 @@
             document.getElementById('link-earth').href = "earth-science.html" + params;
             document.getElementById('link-civics').href = "civics.html" + params;
 
-            // បើកបង្ហាញទំព័រមុខវិជ្ជា និងបិទផ្ទាំង Overlay
             document.getElementById('verify-overlay').style.display = 'none';
             document.getElementById('main-app').style.display = 'block';
             
-            // ញ័រទូរសព្ទសិស្សតិចៗ (Premium Feedback)
             tg.HapticFeedback.notificationOccurred('success');
         })
         .catch(error => {
-            // ករណីដាច់អ៊ីនធឺណិត ឬ Error កូដ
-            console.error("Error sending to Telegram Group:", error);
+            console.error("Error:", error);
             btn.disabled = false;
             btn.innerHTML = `<i class="fas fa-fingerprint"></i> ព្យាយាមម្តងទៀត`;
             Swal.fire('មានបញ្ហាភ្ជាប់បណ្តាញ!', 'សូមពិនិត្យមើលសេវាអ៊ីនធឺណិតរបស់អ្នកឡើងវិញ។', 'warning');
